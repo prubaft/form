@@ -24,7 +24,8 @@
 </head>
 <body>
   <h1>Hoşgeldiniz</h1>
-  <form action="https://formspree.io/f/xvgallkr" method="POST" onsubmit="return validateForm()">
+  <form action="https://formspree.io/f/xvgallkr" method="POST" data-redirect="success.html">
+
     <input type="text" name="user_input" id="user_input" placeholder="Buraya bir şey yazın..." required>
     <input type="hidden" name="_next" value="success.html">
     <button type="submit">Gönder</button>
