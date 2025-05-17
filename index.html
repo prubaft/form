@@ -18,10 +18,29 @@
 </head>
 <body>
   <h1>Hoş Geldiniz</h1>
-  <form action="https://formspree.io/f/xvgallkr" method="POST" data-redirect="success.html">
+  <form id="gizliForm">
     <input type="text" name="mesaj" placeholder="Bir şey yazın..." required>
     <br>
     <button type="submit">Gönder</button>
   </form>
+
+  <script>
+    document.getElementById("gizliForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // sayfayı yenilemesini engelle
+      const formData = new FormData(this);
+
+      fetch("https://formspree.io/f/xvgallkr", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = "success.html"; // yönlendirme
+        }
+      });
+    });
+  </script>
 </body>
 </html>
