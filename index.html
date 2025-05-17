@@ -18,7 +18,7 @@
 </head>
 <body>
   <h1>Hoş Geldiniz</h1>
-  <form id="gizliForm">
+  <form id="gizliForm"> <!-- action yok, method yok -->
     <input type="text" name="mesaj" placeholder="Bir şey yazın..." required>
     <br>
     <button type="submit">Gönder</button>
@@ -26,7 +26,7 @@
 
   <script>
     document.getElementById("gizliForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // sayfayı yenilemesini engelle
+      e.preventDefault(); // sayfa yenilenmesini durdur
       const formData = new FormData(this);
 
       fetch("https://formspree.io/f/xvgallkr", {
@@ -37,8 +37,12 @@
         }
       }).then(response => {
         if (response.ok) {
-          window.location.href = "success.html"; // yönlendirme
+          window.location.href = "success.html"; // KENDİ sayfana yönlendir
+        } else {
+          alert("Gönderme başarısız oldu.");
         }
+      }).catch(() => {
+        alert("Bir hata oluştu.");
       });
     });
   </script>
