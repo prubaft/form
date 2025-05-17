@@ -2,40 +2,26 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Hoşgeldiniz</title>
+  <title>Hoş Geldiniz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 100px;
     }
-    input[type="text"] {
+    input, button {
       padding: 10px;
       font-size: 16px;
-      width: 300px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
       margin-top: 10px;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>Hoşgeldiniz</h1>
+  <h1>Hoş Geldiniz</h1>
   <form action="https://formspree.io/f/xvgallkr" method="POST" data-redirect="success.html">
-
-    <input type="text" name="user_input" id="user_input" placeholder="Buraya bir şey yazın..." required>
-    <input type="hidden" name="_next" value="success.html">
+    <input type="text" name="mesaj" placeholder="Bir şey yazın..." required>
+    <br>
     <button type="submit">Gönder</button>
   </form>
-
-  <script>
-    function validateForm() {
-      const input = document.getElementById('user_input').value;
-      return input.trim() !== "";
-    }
-  </script>
 </body>
 </html>
